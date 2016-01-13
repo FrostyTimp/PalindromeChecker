@@ -16,7 +16,21 @@ public void setup()
 }
 public boolean palindrome(String word)
 {
-  //your code here
-  return false;
+  for(int i=0;i<word.length();i++)
+  {
+    if(word.substring(i,i+1).equals(" ")||word.substring(i,i+1).equals("!")||word.substring(i,i+1).equals("?")||word.substring(i,i+1).equals(".")||word.substring(i,i+1).equals(",")||word.substring(i,i+1).equals("'"))
+    {
+      word=word.substring(0,i)+word.substring(i+1);
+      i--;
+    }
+  }
+  for(int i=0;i<word.length()/2;i++)
+  {
+    if(!word.substring(i,i+1).equalsIgnoreCase(word.substring(word.length()-1-i,word.length()-i)))
+    {
+      return false;
+    }
+  }
+  return true;
 }
 
